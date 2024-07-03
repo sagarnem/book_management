@@ -12,9 +12,9 @@ https://docs.djangoproject.com/en/4.2/ref/settings/
 
 from pathlib import Path
 import os
-# from dotenv import load_dotenv
+from dotenv import load_dotenv
 
-# load_dotenv()
+load_dotenv()
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -85,16 +85,25 @@ LOGIN_REDIRECT_URL = '/'
 # Database
 # https://docs.djangoproject.com/en/4.2/ref/settings/#databases
 
+# DATABASES = {
+#     "default": {
+#         "ENGINE": "django.db.backends.mysql",
+#         "NAME":"book_management",
+#         "HOST": "127.0.0.1",
+#         "USER": "root",
+#         "PASSWORD": ""
+#     }
+# }
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.mysql",
-        "NAME":"book_management",
-        "HOST": "127.0.0.1",
-        "USER": "root",
-        "PASSWORD": ""
+        "NAME":os.getenv("NAME"),
+        "HOST":os.getenv("HOST") ,
+        "USER": os.getenv("USER"),
+        "PASSWORD":os.getenv("PASSWORD")
     }
 }
-
 
 # Password validation
 # https://docs.djangoproject.com/en/4.2/ref/settings/#auth-password-validators

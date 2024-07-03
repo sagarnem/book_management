@@ -36,13 +36,17 @@ class Book(models.Model):
     genre = models.ManyToManyField(genre)
     author = models.ManyToManyField(Author)
     edition = models.PositiveIntegerField()
+    rating =  models.DecimalField(max_digits=5, decimal_places=2)
     ISBN_number = models.CharField(null=True, blank=True, max_length=40)
     page_number = models.IntegerField()
     description = models.CharField(max_length=255, null=True, blank=True)
     demo_text = models.TextField(null=True, blank=True)
-    price = models.DecimalField(max_digits=4, decimal_places=2)
+    price = models.DecimalField(max_digits=10, decimal_places=2)
     volume = models.IntegerField()
     language = models.CharField(max_length=10, null=True, blank=True)
     is_active = models.BooleanField()
     created_at = models.DateTimeField(auto_now_add=True)  
     modified_at = models.DateTimeField(auto_now=True)
+
+    def __str__(self) -> str:
+        return self.name
