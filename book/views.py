@@ -85,15 +85,15 @@ def list_genre(request):
     return render(request, 'genre/index.html', context)
 
 def list_book(request):
-    Genre = Book.objects.filter(is_active=True)
-    context = {'genre':Genre}
+    book = Book.objects.filter(is_active=True)
+    context = {'book':book}
     return render(request, 'book/index.html', context)
 
 
 def create_book(request):
     form = Bookform()
     if request.method == 'POST':
-        form = Bookform(request.POST)
+        form = Bookform(request.POST, request.FILES)
         if form.is_valid():
             form.save()
             return redirect('/book/book')

@@ -1,7 +1,7 @@
 {% extends "home/base.html" %}
 {% block content %}
 <div class="row">
-    <h4> Genre </h4>
+    <h4> Book </h4>
      <div class="col-auto float-right ml-auto">
         <a href="{% url 'create-book' %}" class="btn add-btn"><i class="fa fa-plus"></i> Add Book</a>
     </div> 
@@ -17,14 +17,14 @@
                     </tr>
                 </thead>
                 <tbody>
-                    {% for data in genre %}
+                    {% for data in book %}
                     <tr>
                         <td>{{forloop.counter}}</td>
                         <td>{{data.name}}</td>
                         <td>{{data.is_active}}</td>
                         <td class="text-right">
-                            <a class="btn" href="{% url 'edit-genre' data.id %}"><i class="fa fa-pencil"></i> Edit</a>|
-                            <a class="btn" href="{% url 'delete-genre' data.id %}"><i class="fa fa-trash"></i> Delete</a>
+                            <a class="btn" href="{% url 'edit-book' data.id %}"><i class="fa fa-pencil"></i> Edit</a>|
+                            <a class="btn" href="{% url 'delete-book' data.id %}"><i class="fa fa-trash"></i> Delete</a>
                         </td>
 
                     </tr>
