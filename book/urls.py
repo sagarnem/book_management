@@ -11,7 +11,8 @@ from book.views import (
     create_book,
     list_book,
     edit_book,
-    delete_book
+    delete_book,
+    view_profile
 )
 
 urlpatterns = [
@@ -27,4 +28,5 @@ urlpatterns = [
     path("create_book", create_book, name="create-book"),
     path("edit_book/<id>", edit_book, name="edit-book"),
     path("delete_book/<id>", delete_book, name="delete-book"),
+    path('view_profile<id>',view_profile,name='view_profile'),
 ]
