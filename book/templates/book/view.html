@@ -25,7 +25,12 @@
                             <div class="profile-img">
                                 <a href="">
                                     
-                                    <img src={{data.image.url}} alt="">
+                                    {% if data.image %}
+                                    <img alt="" src="{{ data.image.url }}" class="avatar">
+                                    {% else %}
+                                    <img alt="No image" src="" class="avatar">
+                
+                                    {% endif %}
                                     
                                 </a>
                             </div>
@@ -67,10 +72,7 @@
                                             <span class="title">price:</span>
                                             <span class="text">{{data.price}}</span>
                                         </li>
-                                        <li>
-                                            <span class="title">discount_percent:</span>
-                                            <span class="text"><a href=""></a>{{data.discount_percent}}</span>
-                                        </li>
+                                    
                                         <li>
                                             <span class="title">volume:</span>
                                             <span class="text"><a href=""></a>{{data.volume}}</span>

@@ -24,7 +24,7 @@
                         <td> Rs {{data.balance}} /-</td>
 
                         <td class="text-right">
-                            <a class="btn" href=""><i class="fa fa-pencil"></i> Update Balance</a>
+                            <a class="btn" href="{% url 'update-admin-user-balance' data.id %}"><i class="fa fa-pencil"></i> Update Balance</a>
                         </td>
 
                     </tr>
